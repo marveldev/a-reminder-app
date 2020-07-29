@@ -51,12 +51,12 @@ input {
   border: none;
 }
 
-.button:hover {
+.button:hover,.delete-button:hover,.confirm-button:hover,.cancel-button:hover {
   background-color: #686868;
   color: #f0f8ff;
 }
 
-.button:active {
+.button:active,.delete-button:active,.confirm-button:active,.cancel-button:active {
   transform: translateY(4px);
 }
 
@@ -79,8 +79,54 @@ input {
 .box2 {
   background-color:  #00000042;
   border-radius: 25px;
-  padding: 0.8em;
+  padding: 0 0.8em 0.8em 0.8em;
   margin-bottom: 0.5em;
+}
+
+.delete-button {
+  margin-top: 0.3em;
+  margin-left: 28em;
+  font-weight: bolder;
+  border: unset;
+  border: 2px solid black;
+  cursor: pointer;
+  outline: none;
+}
+
+.delete-container {
+  display: none;
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-container {
+  text-align: center;
+  background-color:  rgb(109, 206, 251);
+  border: 1px solid #888;
+  margin: auto;
+  margin-top: 10em;
+  width: 30%; 
+  height: 25%;
+  padding: 30px;
+}
+
+.modal-content {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.confirm-button,.cancel-button {
+  font-weight: bolder;
+  border: unset;
+  cursor: pointer;
+  outline: none;
+  padding: 0.5em 0.8em;
+  margin: 0.3em;
 }
 
 @media screen and (max-width: 425px) {
@@ -97,11 +143,15 @@ input {
   .span-output {
     line-height: 1.2em;
   }
+
+  .delete-button {
+    margin-left: 20em;
+  }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
   h1 {
-    font-size: 1.5em;
+    font-size: 1.6em;
   }
 
   .time-content {
@@ -109,8 +159,31 @@ input {
     padding: 0.18em;
   }
 
+  .modal-container {
+    width: 50%; 
+  }
+
+  .modal-content {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
   .entries-container {
-    width: 15em;
+    width: 17em;
     padding: 0.5em;
+  }
+
+  .span-output {
+    line-height: 1.2em;
+    font-size: 1em;
+  }
+
+  .delete-button {
+    margin-left: 16em;
   }
 }
