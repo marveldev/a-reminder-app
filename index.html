@@ -7,17 +7,17 @@
     <title>A clock app</title>
   </head>
   <body>
-    <section class="box1">
+    <section class="container">
       <h1>A CLOCK REMINDER</h1>
-      <p class="time-content"></p>
-      <form class="container">
-        <span class="span">SET WAKE UP TIME</span>
-        <input class="input-one" type="time" required>
-        <span class="span">SET LUNCH TIME</span>
-        <input  class="input-two" type="time" required>
-        <span class="span">SET NAP TIME</span>
-        <input  class="input-three" type="time" required><br>
-        <button class="button">SET TIME</button>
+      <div class="time-content"></div>
+      <form class="set-time-form">
+        <span class="set-time">SET WAKE UP TIME</span>
+        <input class="wake-time input" type="time" required>
+        <span class="set-time">SET LUNCH TIME</span>
+        <input  class="lunch-time input" type="time" required>
+        <span class="set-time">SET NAP TIME</span>
+        <input  class="nap-time input" type="time" required><br>
+        <button class="confirm-time button">SET TIME</button>
       </form>
     </section>
     <div class="entries-container"></div>

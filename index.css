@@ -9,7 +9,7 @@ h1 {
   font-size: 2em;
 }
 
-.box1 {
+.container {
   text-align: center;
 }
 
@@ -22,20 +22,19 @@ h1 {
   padding: 0.5em;
 }
 
-.container {
-  text-align: center;
+.set-time-form {
   margin: auto;
   padding: 0.5em;
   margin-top: 2em;
 }
 
-.span {
+.set-time {
   display: block;
   font-size: 1.5em;
   padding: 0.3em;
 }
 
-input {
+.input {
   margin-bottom: 0.5em;
   font-size: 1.5em;
   width: 12em;
@@ -51,12 +50,12 @@ input {
   border: none;
 }
 
-.button:hover,.delete-button:hover,.confirm-button:hover,.cancel-button:hover {
+.modal-content>button:hover,.button:hover,.delete-button:hover {
   background-color: #686868;
   color: #f0f8ff;
 }
 
-.button:active,.delete-button:active,.confirm-button:active,.cancel-button:active {
+.modal-content>button:hover,.button:active,.delete-button:active {
   transform: translateY(4px);
 }
 
@@ -70,17 +69,18 @@ input {
   background-color: #02b875be;  
 }
 
-.span-output {
+.set-time-output {
   display: block;
   color: #fbfbfb;
   line-height: 1.5em;
 }
 
-.box2 {
+.entries-content {
   background-color:  #00000042;
   border-radius: 25px;
   padding: 0 0.8em 0.8em 0.8em;
   margin-bottom: 0.5em;
+  color: #f0f8ff;
 }
 
 .delete-button {
@@ -93,7 +93,7 @@ input {
   outline: none;
 }
 
-.delete-container {
+.modal-container {
   display: none;
   position: fixed; 
   z-index: 1;
@@ -104,7 +104,7 @@ input {
   background-color: rgba(0,0,0,0.4); 
 }
 
-.modal-container {
+.modal-content {
   text-align: center;
   background-color:  rgb(109, 206, 251);
   border: 1px solid #888;
@@ -115,13 +115,13 @@ input {
   padding: 30px;
 }
 
-.modal-content {
+.modal-content>p {
   font-size: 25px;
   font-weight: bold;
 }
 
-.confirm-button,.cancel-button {
-  font-weight: bolder;
+.modal-content>button {
+  font-weight: bold;
   border: unset;
   cursor: pointer;
   outline: none;
@@ -140,7 +140,7 @@ input {
     padding: 0.7em;
   }
 
-  .span-output {
+  .set-time-output {
     line-height: 1.2em;
   }
 
@@ -159,11 +159,11 @@ input {
     padding: 0.18em;
   }
 
-  .modal-container {
+  .modal-content {
     width: 50%; 
   }
 
-  .modal-content {
+  .modal-content>p {
     font-size: 20px;
   }
 }
@@ -178,7 +178,7 @@ input {
     padding: 0.5em;
   }
 
-  .span-output {
+  .set-time-output {
     line-height: 1.2em;
     font-size: 1em;
   }

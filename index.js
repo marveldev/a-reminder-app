@@ -1,38 +1,32 @@
-const inputOne = document.querySelector('.input-one');
-const inputTwo = document.querySelector('.input-two');
-const inputThree = document.querySelector('.input-three');
+const wakeUpTime = document.querySelector('.wake-time');
+const lunchTime = document.querySelector('.lunch-time');
+const napTime = document.querySelector('.nap-time');
 const entriesContainer = document.querySelector('.entries-container');
-const button = document.querySelector('.button');
+const confirmTimeButton = document.querySelector('.confirm-time');
 
 const time = setInterval(() => {
   const currentTime = new Date().toLocaleTimeString();
   document.querySelector('.time-content').innerHTML = currentTime; 
 })
 
-button.addEventListener('click',  () => {
+confirmTimeButton.addEventListener('click',  () => {
   event.preventDefault();
-  const inputOneValue = inputOne.value;
-  const inputTwoValue = inputTwo.value;
-  const inputThreeValue = inputThree.value;
+  const wakeUpTimeValue = wakeUpTime.value;
+  const lunchTimeValue = lunchTime.value;
+  const napTimeValue = napTime.value;
 
-  if (inputOneValue.length < 2) {
-    alert('please enter a valid input.')
-  } else if (inputTwoValue.length < 2) {
-    alert('please enter a valid input.')
-  } else if (inputThreeValue.length < 2) {
-    alert('please enter a valid input.')
-  } else {
+  if (wakeUpTimeValue.length > 2 && lunchTimeValue.length > 2 && napTimeValue.length > 2) {
     const output = `
-      <section class="box2">
+      <section class="entries-content">
         <button class="delete-button">X</button>
-        <span class="span-output">WAKE UP TIME: ${inputOneValue} GMT</span>
-        <span class="span-output">LUNCH TIME: ${inputTwoValue} GMT</span>
-        <span class="span-output">NAP TIME: ${inputThreeValue} GMT</span>
+        <span>WAKE UP TIME: ${wakeUpTimeValue} GMT</span><br>
+        <span>LUNCH TIME: ${lunchTimeValue} GMT</span><br>
+        <span>NAP TIME: ${napTimeValue} GMT</span>
       </section>
-      <section class="delete-container">
-        <div class="modal-container">
-          <p class="modal-content">ARE YOU SURE?</p>
-          <button type="button" class="confirm-button">YES</button>
+      <section class="modal-container">
+        <div class="modal-content">
+          <p>ARE YOU SURE?</p>
+          <button type="button" class="modal-button">YES</button>
           <button type="button" class="cancel-button">NO</button>
         </div>
       </section>
@@ -40,32 +34,34 @@ button.addEventListener('click',  () => {
     entriesContainer.style.display = 'block';
     entriesContainer.innerHTML += output;
 
-    const deleteIcons = document.querySelectorAll('.delete-button');
-    for (let index = 0; index < deleteIcons.length; index++) {
-      const element = deleteIcons[index];
-      element.addEventListener('click', () => {
-        element.parentElement.nextElementSibling.style.display = 'block';
+    const deleteButtons = document.querySelectorAll('.delete-button');
+    for (let index = 0; index < deleteButtons.length; index++) {
+      const deleteButton = deleteButtons[index];
+      deleteButton.addEventListener('click', () => {
+        deleteButton.parentElement.nextElementSibling.style.display = 'block';
       })
     }
 
-    const confirmButtons = document.querySelectorAll('.confirm-button');
-    for (let index = 0; index < confirmButtons.length; index++) {
-      const confirmButton = confirmButtons[index];
-      confirmButton.addEventListener('click', () => {
-        const item = confirmButton.parentElement.parentElement.previousElementSibling;
-        const modal = confirmButton.parentElement.parentElement;
+    const modalButtons = document.querySelectorAll('.modal-button');
+    for (let index = 0; index < modalButtons.length; index++) {
+      const modalButton= modalButtons[index];
+      modalButton.addEventListener('click', () => {
+        const item = modalButton.parentElement.parentElement.previousElementSibling;
+        const modal = modalButton.parentElement.parentElement;
         entriesContainer.removeChild(item);
         modal.style.display = 'none';
       })
     }
     
-    const cancelButtons = document.querySelectorAll('.cancel-button');
-    for (let index = 0; index < cancelButtons.length; index++) {
-      const cancelButton = cancelButtons[index];
-      cancelButton.addEventListener('click', () => {
-        const modal = cancelButton.parentElement.parentElement;
+    const closeModalButtons = document.querySelectorAll('.cancel-button');
+    for (let index = 0; index < closeModalButtons.length; index++) {
+      const closeModalButton = closeModalButtons[index];
+      closeModalButton.addEventListener('click', () => {
+        const modal = closeModalButton.parentElement.parentElement;
         modal.style.display = 'none';
       })
     }
-  };
+  } else {
+    alert('please enter a valid input.')
+  }
 });
